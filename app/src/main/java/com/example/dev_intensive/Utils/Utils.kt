@@ -45,4 +45,13 @@ object Utils {
         var lastNameInitial = lastName?.substring(0,1) ?: null
         return firstNameInitial+lastNameInitial
     }
+
+    fun truncate(str:String, num:Int = 16): String{
+        var str1 = str.substring(0, num-1)
+        return str + "..."
+    }
+
+    fun stripHtml(str:String): String{
+        return str.replace("\\<.*?>\\","").replace("  ", " ")
+    }
 }

@@ -6,6 +6,7 @@ import com.example.dev_intensive.Extensions.format
 import com.example.dev_intensive.Extensions.toUserView
 import com.example.dev_intensive.Models.*
 import com.example.dev_intensive.Utils.Utils
+
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -121,5 +122,19 @@ class ExampleUnitTest {
 
         println(txtMessage.formatMessage())
         println(imgMessage.formatMessage())
+    }
+
+    @Test
+    fun test_builder() {
+        var userBuilderTest = User.Builder("1")
+            .firstName("Dmitriy")
+            .lastName("Shumskiy")
+            .build()
+    }
+
+    @Test
+    fun test_htmlStrip() {
+        var test1 = Utils.stripHtml("<p>Образовательное       IT-сообщество Skill Branch</p>")
+        println(test1)
     }
 }

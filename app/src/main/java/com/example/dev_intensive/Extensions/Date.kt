@@ -27,6 +27,22 @@ fun Date.add(value:Int, units: TimeUnits = TimeUnits.SECOND): Date{
     return this
 }
 
+fun Date.plural(value: Int, units: TimeUnits = TimeUnits.SECOND): String{
+        if (units == TimeUnits.SECOND && value %10 == 1) return "$value секунду назад"
+        else if (units == TimeUnits.SECOND && value % 10 in 2..4) return "$value секунды назад"
+        else if (units == TimeUnits.SECOND && (value % 10 in 5..9|| value % 10 == 0)) return "$value секунд назад"
+        else if (units == TimeUnits.MINUTE && value %10 == 1) return "$value минуту назад"
+        else if (units == TimeUnits.MINUTE && value % 10 in 2..4) return "$value минуты назад"
+        else if (units == TimeUnits.MINUTE && (value % 10 in 5..9|| value % 10 == 0)) return "$value минут назад"
+        else if (units == TimeUnits.HOUR && value %10 == 1) return "$value час назад"
+        else if (units == TimeUnits.HOUR && value % 10 in 2..4) return "$value часа назад"
+        else if (units == TimeUnits.HOUR && (value % 10 in 5..9|| value % 10 == 0)) return "$value часов назад"
+        else if (units == TimeUnits.DAY && value %10 == 1) return "$value день назад"
+        else if (units == TimeUnits.DAY && value % 10 in 2..4) return "$value дня назад"
+        else if (units == TimeUnits.DAY && (value % 10 in 5..9|| value % 10 == 0)) return "$value дней назад"
+        else throw IllegalStateException("invalid unit")
+    }
+
 enum class TimeUnits{
     SECOND,
     MINUTE,
